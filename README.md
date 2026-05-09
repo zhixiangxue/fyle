@@ -2,10 +2,10 @@
 
 <img src="https://raw.githubusercontent.com/zhixiangxue/fyle/main/docs/assets/logo.png" alt="fyle" width="120">
 
-[![PyPI](https://img.shields.io/pypi/v/fyle.svg)](https://pypi.org/project/fyle/)
-[![Python](https://img.shields.io/pypi/pyversions/fyle.svg)](https://pypi.org/project/fyle/)
+[![PyPI](https://img.shields.io/pypi/v/fylepy.svg)](https://pypi.org/project/fylepy/)
+[![Python](https://img.shields.io/pypi/pyversions/fylepy.svg)](https://pypi.org/project/fylepy/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Downloads](https://img.shields.io/pypi/dm/fyle.svg)](https://pypi.org/project/fyle/)
+[![Downloads](https://img.shields.io/pypi/dm/fylepy.svg)](https://pypi.org/project/fylepy/)
 
 **Any file in. Clean Markdown out. LLM ready.**
 
@@ -45,14 +45,14 @@ Works out of the box on:
 ## Install
 
 ```bash
-pip install fyle
+pip install fylepy
 ```
 
 Audio / video transcription are opt-in extras (native wheels + a ~140 MB model on first run):
 
 ```bash
-pip install 'fyle[audio]'   # faster-whisper
-pip install 'fyle[video]'   # faster-whisper + PySceneDetect + PyAV
+pip install 'fylepy[audio]'   # faster-whisper
+pip install 'fylepy[video]'   # faster-whisper + PySceneDetect + PyAV
 ```
 
 ---
@@ -92,7 +92,7 @@ fyle.readers()
 
 | Family | Extensions | Reader |
 |---|---|---|
-| PDF | `.pdf` | [pymupdf4llm](https://pypi.org/project/pymupdf4llm/) |
+| PDF | `.pdf` | pymupdf4llm |
 | Word | `.docx` | mammoth |
 | Excel | `.xlsx` | openpyxl + tabulate |
 | PowerPoint | `.pptx` | python-pptx |
