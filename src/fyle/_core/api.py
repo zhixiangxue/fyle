@@ -164,12 +164,16 @@ def readers() -> dict[str, list[str]]:
     return registry.list_all()
 
 
-def accepts() -> list[str]:
-    """Return the file formats fyle can ingest, e.g. ``["pdf", "docx", ...]``.
+def accepts() -> dict[str, list[str]]:
+    """Return accepted formats and their extensions.
 
-    Sourced from the reader registry — a format is reported iff at least
-    one reader is registered for it. Useful for tools that want to surface
-    a `--help`-style list of supported types (``kros file -h``).
+    Example::
+
+        {"image": ["jpg", "jpeg", "png", "webp"], "pdf": ["pdf"], ...}
+
+    Sourced from the sniffer extension map — an extension is reported iff
+    fyle can detect and route it to a reader. Useful for tools that want to
+    surface a `--help`-style list of supported types (``kros file -h``).
     """
     _ensure_readers()
-    return registry.list_formats()
+    return sniffer.list_extensions()

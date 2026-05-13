@@ -168,6 +168,18 @@ _MIME_MAP: dict[str, str] = {
 }
 
 
+def list_extensions() -> dict[str, list[str]]:
+    """Return ``{format: [ext, ...]}`` — the inverse of ``_EXT_MAP``.
+
+    Backs the public ``fyle.accepts()`` helper. Extensions are without dot,
+    sorted within each format; formats are sorted alphabetically.
+    """
+    out: dict[str, list[str]] = {}
+    for ext, fmt in _EXT_MAP.items():
+        out.setdefault(fmt, []).append(ext.lstrip("."))
+    return {k: sorted(v) for k, v in sorted(out.items())}
+
+
 def _sniff_magic(data: bytes) -> Optional[str]:
     """Detect format from magic bytes. Covers the main v1 formats."""
     if len(data) == 0:
