@@ -162,3 +162,14 @@ def readers() -> dict[str, list[str]]:
     """
     _ensure_readers()
     return registry.list_all()
+
+
+def accepts() -> list[str]:
+    """Return the file formats fyle can ingest, e.g. ``["pdf", "docx", ...]``.
+
+    Sourced from the reader registry — a format is reported iff at least
+    one reader is registered for it. Useful for tools that want to surface
+    a `--help`-style list of supported types (``kros file -h``).
+    """
+    _ensure_readers()
+    return registry.list_formats()

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from importlib.metadata import PackageNotFoundError, version as _pkg_version
 
-from ._core.api import open, read, readers
+from ._core.api import accepts, open, read, readers
 from ._core.document import Chunk, Document, Image, Meta, Page, Table
 from .errors import (
     DownloadError,
@@ -22,6 +22,7 @@ __all__ = [
     "open",
     "read",
     "readers",
+    "accepts",
     # Data model (exposed for type hints / isinstance checks)
     "Document",
     "Page",

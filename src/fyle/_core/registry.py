@@ -87,6 +87,16 @@ def resolve(fmt: str, name: Optional[str] = None) -> type:
     return cls
 
 
+def list_formats() -> list[str]:
+    """Return the sorted list of formats that fyle can ingest.
+
+    Backs the public ``fyle.accepts()`` helper. The registry is the single
+    source of truth: a format appears here iff at least one Reader class
+    has registered for it.
+    """
+    return sorted(_BY_FORMAT)
+
+
 def list_all() -> dict[str, list[str]]:
     """Return ``{fmt: [name, ...]}``.
 
